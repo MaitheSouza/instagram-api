@@ -52,7 +52,7 @@ const createChat = (_, id) => {
 
     return {
         id,
-        lastMessage: messages.at(-1),
+        lastMessage: messages[messages.length - 1],
         messages,
         user,
     }
