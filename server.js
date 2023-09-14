@@ -20,7 +20,7 @@ const createUser = (_, id) => {
 const users = Array.from({ length: 10 }, createUser)
 
 const createPosts = (_, id) => {
-    const userId = faker.number.int({ max: user.length - 1 })
+    const userId = faker.number.int({ max: users.length - 1 })
     const user = users[userId]
 
     return {
@@ -45,7 +45,7 @@ const createMessage = (_, id) => {
 }
 
 const createChat = (_, id) => {
-    const userId = faker.number.int({ max: user.length - 1 })
+    const userId = faker.number.int({ max: users.length - 1 })
     const user = users[userId]
 
     const messages = Array.from({ length: faker.number.int({ min: 1, max: 50 }) }, createMessage)
