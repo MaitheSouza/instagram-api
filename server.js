@@ -1,7 +1,9 @@
 const express = require("express")
 const { faker } = require("@faker-js/faker")
+const morgan = require("morgan")
 
 const app = express()
+app.use(morgan())
 
 const createUser = (_, id) => {
     const gender  = faker.person.sex()
