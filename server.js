@@ -46,12 +46,20 @@ const createMessage = (_, id) => {
     }
 }
 
+const usersWithChat = []
+
 const createChat = (_, id) => {
     const userId = faker.number.int({ max: users.length - 1 })
+
+    if (usersWithChat.indexOf(userId) != -1) {
+        return createChat(_, id)
+    }
+
     const user = users[userId]
 
     const messages = Array.from({ length: faker.number.int({ min: 1, max: 50 }) }, createMessage)
 
+    usersWithChat.push(userId)
     return {
         id,
         lastMessage: messages[messages.length - 1],
