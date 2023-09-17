@@ -13,7 +13,7 @@ const createUser = (_, id) => {
     return {
         id,
         name: `${firstName} ${lastName}`,
-        username: faker.internet.userName({ firstName, lastName }),
+        username: faker.internet.userName({ firstName, lastName }).toLowerCase(),
         avatarImageUrl: faker.internet.avatar(),
         gender
     }
